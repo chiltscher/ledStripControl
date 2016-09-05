@@ -1,13 +1,13 @@
 // to the pins used:
-const int red = 11;
+const int red = 10;
 const int green = 9;
-const int blue = 10;
+const int blue = 11;
 
-void setup() { 
+void setup() {
     Serial.begin(9600);
-    pinMode(red, OUTPUT); 
-    pinMode(green, OUTPUT); 
-    pinMode(blue, OUTPUT); 
+    pinMode(red, OUTPUT);
+    pinMode(green, OUTPUT);
+    pinMode(blue, OUTPUT);
 }
 
 void setColor(int r, int g, int b) {
@@ -20,14 +20,14 @@ void turnOn(int color) {
     for (int brightness = 0; brightness < 255; brightness++) {
       analogWrite(color, brightness);
       delay(10);
-    } 
+    }
 }
 
 void turnOff(int color) {
     for (int brightness = 255; brightness >= 0; brightness--) {
       analogWrite(color, brightness);
       delay(10);
-    } 
+    }
 }
 
 void toggle(int color) {
@@ -58,7 +58,7 @@ void mode1() {
   turnOff(green);
   turnOn(red);
   turnOff(blue);
-  
+
 }
 
 void mode2() {
@@ -74,21 +74,21 @@ void mode2() {
 
 void mode3() {
  turnOn(red);
- strobe(255, 255, 255, 200); 
+ strobe(255, 255, 255, 200);
  strobe(255, 255, 255, 200);
  delay(100);
  turnOn(green);
- strobe(255, 255, 255, 200); 
+ strobe(255, 255, 255, 200);
  strobe(255, 255, 255, 200);
  delay(100);
  turnOn(blue);
- strobe(255, 255, 255, 200); 
+ strobe(255, 255, 255, 200);
  strobe(255, 255, 255, 200);
  delay(100);
 }
 
 void sos() {
-  strobe(255, 255, 255, 200); 
+  strobe(255, 255, 255, 200);
   strobe(255, 255, 255, 200);
   strobe(255, 255, 255, 200);
   strobe(255, 255, 255, 500);
@@ -102,5 +102,5 @@ void sos() {
 
 void loop() {
   mode3();
-  
+
 }
